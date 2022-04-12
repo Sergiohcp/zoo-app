@@ -31,7 +31,14 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         width: '100%',
-        marginTop: 12
+        marginTop: 12,
+        shadowOffset: {
+            width: 1,
+            height: 1
+          },
+          shadowOpacity: 0.5,
+          shadowRadius: 1,
+          shadowColor: "rgb(125, 125, 125)"
     },
     subContainer: {
         flexDirection: 'row',

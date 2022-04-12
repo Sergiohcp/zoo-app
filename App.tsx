@@ -1,5 +1,5 @@
-import AnimalListScreen from './src/screens/AnimalListScreen';
+import Navigation from './src/navigation'
 
 export default function App() {
-  return <AnimalListScreen />;
+  return <Navigation />;
 }

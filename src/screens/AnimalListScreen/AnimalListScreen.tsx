@@ -3,10 +3,13 @@ import { Text, View, FlatList, Alert, ActivityIndicator } from 'react-native';
 import { getAnimals } from '../../services/animals';
 import { Animal } from '../../types/animal';
 import AnimalListItem from './components/AnimalListItem/AnimalListItem';
+import { useNavigation } from '@react-navigation/native';
 
 import styles from './styles';
 
 export default function AnimalListScreen() {
+
+  const navigation = useNavigation<any>();
 
   const [animals, setAnimals] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -27,11 +30,11 @@ export default function AnimalListScreen() {
   }, [])
 
   function onSelectAnimal(animal: Animal) {
-    console.log(animal)
+    navigation.navigate("AnimalDetails", { animal })
   }
 
-  function renderItem({ item }: { item: Animal }) {
-    return <AnimalListItem animal={item} onSelectAnimal={onSelectAnimal} />
+  function renderItem({ item }: { item: Animal }) { 
+    return <AnimalListItem animal={item} onSelectAnimal={onSelectAnimal}  />
   }
 
   if (isLoading) {
@@ -49,6 +52,7 @@ export default function AnimalListScreen() {
       keyExtractor={(item) => item.id.toString()}
       style={styles.flatList}
       contentContainerStyle={styles.flatListContainer}
+      showsVerticalScrollIndicator={false}
     />
   );
 }

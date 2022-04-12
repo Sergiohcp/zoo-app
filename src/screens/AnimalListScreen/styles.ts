@@ -8,7 +8,7 @@ export default StyleSheet.create({
     flexGrow: 1,
     backgroundColor: "#EEEEEE",
     alignItems: "flex-start",
-    paddingTop: 60,
+    paddingTop: 16,
     paddingHorizontal: 24,
     paddingBottom: 24,
   },
